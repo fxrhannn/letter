@@ -4,69 +4,71 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #f9f9f9;
     margin: 0;
+    background: linear-gradient(to bottom right, #FF8C8C, #FFB6C1);
+    overflow: hidden;
+}
+
+.background {
+    text-align: center;
+    position: relative;
 }
 
 .envelope {
     position: relative;
     width: 300px;
-    height: 200px;
+    height: 300px;
     background-color: #F4A300;
-    border-radius: 10px;
+    border-radius: 50% 50% 0 0;
     overflow: hidden;
     transition: all 0.5s ease;
     cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-.flap {
+.heart-top {
     position: absolute;
-    background-color: #F4A300;
-    height: 50%;
     width: 100%;
+    height: 60%;
+    background-color: #F4A300;
     top: 0;
-    left: 0;
-    border-radius: 10px;
-}
-
-.top {
-    top: 0;
+    clip-path: polygon(50% 0%, 0% 50%, 50% 100%, 100% 50%);
     transform-origin: top;
+    transition: transform 0.5s ease;
 }
 
-.bottom {
+.heart-bottom {
+    position: absolute;
+    width: 100%;
+    height: 40%;
+    background-color: #F4A300;
     bottom: 0;
+    clip-path: polygon(50% 0%, 0% 50%, 50% 100%, 100% 50%);
     transform-origin: bottom;
-}
-
-.left {
-    left: 0;
-    transform-origin: left;
-}
-
-.right {
-    right: 0;
-    transform-origin: right;
+    transition: transform 0.5s ease;
 }
 
 .envelope-content {
-    padding: 20px;
-    color: #333;
-    background-color: white;
-    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: none;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
-h2 {
-    text-align: center;
+.letter h2 {
     font-size: 24px;
     color: #F4A300;
 }
 
-p {
+.letter p {
     font-size: 18px;
-    text-align: center;
+    color: #333;
 }
 
 button {
@@ -79,8 +81,13 @@ button {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+    margin-bottom: 10px;
 }
 
 button:hover {
     background-color: #FF8C00;
+}
+
+button:focus {
+    outline: none;
 }
